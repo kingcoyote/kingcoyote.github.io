@@ -1,26 +1,30 @@
 {
     "prefix": {
-        "feature": ["Mt.", "Lake", "Point", "Cape" ],
+        "feature": ["Mt.", "Lake", "Point", "Cape", "Fort" ],
         "size": ["Big", "Little", "Great", "Gran", "Mighty"],
         "age": ["New", "Old"],
-        "temperment": ["Hushed", "Pleasant", "Wild", "Harsh", "Desolate"],
+        "temperment": ["Hushed", "Pleasant", "Wild", "Harsh", "Desolate", "Broken"],
         "location": ["North", "South", "East", "West", "Upper", "Lower", "Inner", "Outer"],
-        "ownership": ["Royal", "King's"],
-        "nationality": ["Dutch", "French", "English", "Indian", "Japanese", "Chinese", "Mexican", "Brazilian", "Spanish", "American"]
+        "ownership": ["Royal", "King's", "People's"],
+        "nationality": ["Dutch", "French", "English", "Indian", "Japanese", "Chinese", "Mexican", "Brazilian", "Spanish", "American"],
+        "title": ["St.", "Lord", "Lady", "San", "Santa"]
     },
     "root": {
         "mineral": ["Copper", "Iron", "Coal", "Steel", "Diamond", "Aluminum" ],
-        "tree": ["Elm", "Pine", "Aspen", "Birch", "Juniper", "Mesquite"],
+        "tree": ["Elm", "Pine", "Aspen", "Birch", "Juniper", "Mesquite", "Cedar", "Oak"],
         "animal-forest": ["Wolf", "Coyote", "Bear", "Moose" ],
         "animal-raptor": ["Eagle", "Falcon", "Hawk", "Owl" ],
         "animal-sea": ["Whale", "Dolphin", "Orca", "Shark", "Octopus", "Eel", "Starfish" ],
-        "occupation": ["Rancher", "Furnace", "Tailor", "Fisher", "Hunter"],
-        "food-fruit": ["Apple", "Peach", "Watermelon", "Banana", "Grape", "Strawberry"],
-        "food-vegetable": ["Potato"]
+        "occupation": ["Rancher", "Furnace", "Tailor", "Fisher", "Hunter", "Poacher", "Soldier", "Courier", "Drummer"],
+        "food-fruit": ["Apple", "Peach", "Watermelon", "Banana", "Grape", "Strawberry", "Cherry", "Cranberry", "Pineapple"],
+        "food-vegetable": ["Potato", "Corn", "Soy"],
+        "crops": ["Cotton"]
     },
     "suffix": {
-        "feature-ground": ["Valley", "Land", "Mesa", "Point", "Peak", "Meadow", "Hill", "Ridge" ],
-        "feature-water":  ["River", "Lake", "Basin", "Springs", "Creek", "Brook", "Run" ],
-        "district": ["Plaza", "Strip", "Point", "Junction", "Heights", "City", "Township", "Center", "Village" ]
+        "feature-ground": ["Valley", "Land:s", "Mesa", "Point", "Peak", "Meadow", "Hill", "Ridge", "Gap", "Rock", "Flat", "Top", "Round" ],
+        "feature-water":  ["River", "Lake", "Basin", "Springs", "Creek", "Brook", "Run", "Falls", "Oasis", "Bay" ],
+        "feature-nature": ["Woods", "Grove", "Field:s" ],
+        "district": ["Plaza", "Strip", "Place", "Junction", "Heights", "City", "Township", "Center", "Village", "Ville:s", "Home", "Burg:s", "Town:s", "Grad:s" ],
+        "landmark": ["Blind", "Outpost", "Crossing", "Ferry", "Point", "Bridge", "Overlook", "View" ]
     }
 }

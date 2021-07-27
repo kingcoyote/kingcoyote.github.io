@@ -60,43 +60,44 @@ function initCopperlands() {
     
     const newName = document.getElementById("new-name");
     const favNames = document.getElementById("favorite-names");
+    const prefixCount = document.getElementById("prefix-count");
+    const suffixCount = document.getElementById("suffix-count");
     
+    function getCount(type) {
+        const setting = type === "prefix" ? prefixCount.value : suffixCount.value;
+
+        switch(setting) {
+            case "None": return 0;
+            case "Few": return getRandomInt(0,2);
+            case "Lots": return getRandomInt(2,4);
+            default: return 0;
+        }
+    }
+
     function generateName() {
         let prefixes = textareas["prefix"].innerHTML.split("\n").filter(word => word.trim() != "");
         let roots = textareas["root"].innerHTML.split("\n").filter(word => word.trim() != "");
         let suffixes = textareas["suffix"].innerHTML.split("\n").filter(word => word.trim() != "");
 
-        let prefixScore = Math.random();
-        let suffixScore = Math.random();
-
-        if (Math.random() > 0.5) {
-            prefixScore -= suffixScore;
-        } else {
-            suffixScore -= prefixScore;
-        }
+        let prefixCount = getCount("prefix");
+        let suffixCount = getCount("suffix");
     
         let word = getRandomElement(roots);
-        if (Math.random() > 0.75) {
+        if (suffixCount > 0 && Math.random() > 0.75) {
             word = word + "'s";
         }
 
-        console.log(`Word: ${word}, prefix score: ${prefixScore}, suffix score: ${suffixScore}`);
-
-        prefixCost = 0.3;
-        while (prefixScore > 0) {
-            prefixScore -= prefixCost;
-            if (prefixScore > 0) {
-                prefixCost *= 1.25;
-                word = `${getRandomElement(prefixes, true)} ${word}`;
-            }
+        for (let i = 0; i < prefixCount; i++) {
+            word = `${getRandomElement(prefixes, true)} ${word}`;
         }
 
-        suffixCost = 0.3;
-        while (suffixScore > 0) {
-            suffixScore -= suffixCost;
-            if (suffixScore > 0) {
-                suffixCost *= 1.25;
-                word = `${word} ${getRandomElement(suffixes, true)}`;
+        for (let i = 0; i < suffixCount; i++) {
+            suffix = getRandomElement(suffixes, true);
+            if (suffix.indexOf(":s") > 0) {
+                suffix = suffix.replace(":s", "").toLowerCase();
+                word = `${word}${suffix}`
+            } else {
+                word = `${word} ${suffix}`;
             }
         }
 

@@ -1,2 +1,4 @@
 div#words textarea { width:100%; height:400px; }
 #new-name { font-size:2em; font-weight:bold; }
+div.btn-group.btn-group-block { display:flex; }
+div.btn-group.btn-group-block button.btn { flex:1; }
