@@ -1,0 +1,26 @@
+{
+    "prefix": {
+        "feature": ["Mt.", "Lake", "Point", "Cape" ],
+        "size": ["Big", "Little", "Great", "Gran", "Mighty"],
+        "age": ["New", "Old"],
+        "temperment": ["Hushed", "Pleasant", "Wild", "Harsh", "Desolate"],
+        "location": ["North", "South", "East", "West", "Upper", "Lower", "Inner", "Outer"],
+        "ownership": ["Royal", "King's"],
+        "nationality": ["Dutch", "French", "English", "Indian", "Japanese", "Chinese", "Mexican", "Brazilian", "Spanish", "American"]
+    },
+    "root": {
+        "mineral": ["Copper", "Iron", "Coal", "Steel", "Diamond", "Aluminum" ],
+        "tree": ["Elm", "Pine", "Aspen", "Birch", "Juniper", "Mesquite"],
+        "animal-forest": ["Wolf", "Coyote", "Bear", "Moose" ],
+        "animal-raptor": ["Eagle", "Falcon", "Hawk", "Owl" ],
+        "animal-sea": ["Whale", "Dolphin", "Orca", "Shark", "Octopus", "Eel", "Starfish" ],
+        "occupation": ["Rancher", "Furnace", "Tailor", "Fisher", "Hunter"],
+        "food-fruit": ["Apple", "Peach", "Watermelon", "Banana", "Grape", "Strawberry"],
+        "food-vegetable": ["Potato"]
+    },
+    "suffix": {
+        "feature-ground": ["Valley", "Land", "Mesa", "Point", "Peak", "Meadow", "Hill", "Ridge" ],
+        "feature-water":  ["River", "Lake", "Basin", "Springs", "Creek", "Brook", "Run" ],
+        "district": ["Plaza", "Strip", "Point", "Junction", "Heights", "City", "Township", "Center", "Village" ]
+    }
+}
