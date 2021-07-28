@@ -32,72 +32,74 @@ function getRandomElement(array, remove = false) {
     return element;
 }
 
-function initCopperlands() {
-    const prefixTA = document.getElementById("word-prefix");
-    const rootTA = document.getElementById("word-root");
-    const suffixTA = document.getElementById("word-suffix");
+function saveFavorites() {
+    
+}
 
-    const textareas = {
-        "prefix": prefixTA,
-        "root": rootTA,
-        "suffix": suffixTA
-    }
+function loadFavorites() {
+
+}
+
+function initCopperlands() {
+    const wordsTA = document.getElementById("words");
 
     fetchUrl("words.json")
         .then(response => { 
             return JSON.parse(response); 
         })
         .then(words => {
-            for (let segment of ["prefix", "root", "suffix"]) {
-
-                for (let category in words[segment]) {
-                    words[segment][category].forEach(word => {
-                        textareas[segment].innerHTML += `${word}\n`;
-                    })
-                }
+            for (let category in words) {
+                words[category].forEach(word => {
+                    wordsTA.innerHTML += `${word}\n`;
+                })
             }
-        });
+        })
+        .then(loadFavorites);
     
     const newName = document.getElementById("new-name");
     const favNames = document.getElementById("favorite-names");
-    const prefixCount = document.getElementById("prefix-count");
-    const suffixCount = document.getElementById("suffix-count");
+    const wordCount = document.getElementById("word-count");
     
-    function getCount(type) {
-        const setting = type === "prefix" ? prefixCount.value : suffixCount.value;
+    function getCount() {
+        const setting = wordCount.value;
 
         switch(setting) {
-            case "None": return 0;
-            case "Few": return getRandomInt(0,2);
-            case "Lots": return getRandomInt(2,4);
-            default: return 0;
+            case "Few": return getRandomInt(1,3);
+            case "Some": return getRandomInt(2,5);
+            case "Lots": return getRandomInt(3,7);
+            default: return 3;
         }
     }
 
     function generateName() {
-        let prefixes = textareas["prefix"].innerHTML.split("\n").filter(word => word.trim() != "");
-        let roots = textareas["root"].innerHTML.split("\n").filter(word => word.trim() != "");
-        let suffixes = textareas["suffix"].innerHTML.split("\n").filter(word => word.trim() != "");
+        let invalidWord = true;
+        let words = [];
+        let wordCount = getCount();
+        let tries = 0;
 
-        let prefixCount = getCount("prefix");
-        let suffixCount = getCount("suffix");
-    
-        let word = getRandomElement(roots);
-        if (suffixCount > 0 && Math.random() > 0.75) {
-            word = word + "'s";
+        while (invalidWord && tries < 100){
+            let allWords = wordsTA.innerHTML.split("\n").filter(word => word.trim() != "");
+            words = [];
+
+            for (let i = 0; i < wordCount; i++) {
+                words.push(getRandomElement(allWords, true).split(":"))
+            }
+            words = words.sort((a, b) => a[1].replace("p", "") - b[1].replace("p", ""))
+            let average = words.map(word => parseInt(word[1].replace("p", ""))).reduce((a, b) => a + b) / words.length;
+            console.log(`Average is: ${average}`);
+            invalidWord = average < 4 || average > 6;
+            tries++;
         }
 
-        for (let i = 0; i < prefixCount; i++) {
-            word = `${getRandomElement(prefixes, true)} ${word}`;
-        }
+        let word = "";
 
-        for (let i = 0; i < suffixCount; i++) {
-            suffix = getRandomElement(suffixes, true);
-            if (suffix.indexOf(":s") > 0) {
-                suffix = suffix.replace(":s", "").toLowerCase();
-                word = `${word}${suffix}`
+        for (let w in words) {
+            if (words.hasOwnProperty(w) === false) continue;
+            w = words[w];
+            if (w[2] == "s") {
+                word = word + w[0].toLowerCase();
             } else {
-                word = `${word} ${suffix}`;
+                word = word + " " + w[0];
             }
         }
 
@@ -109,8 +111,14 @@ function initCopperlands() {
     };
 
     document.getElementById("save-name").onclick = ev => {
-        favNames.innerHTML += `<li>${newName.innerHTML}</li>`;
+        favNames.innerHTML += `<li>${newName.innerHTML} | <a class="delete" href="#">Delete</a></li>`;
+        saveFavorites();
     };
+
+    $("#favorite-names").on("click", "li a.delete", function(ev) {
+        $(this).parents("#favorite-names")[0].remove($(this).parent()[0]);
+        saveFavorites();
+    });
 }
 
 document.onload = initCopperlands();

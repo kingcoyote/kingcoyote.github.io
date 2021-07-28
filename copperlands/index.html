@@ -43,42 +43,21 @@
             <hr />
             <form>
                 <div id="options" class="row">
-                    <div class="form-group col-12 col-md-6">
-                        <label>Prefixes</label>
-                        <select id="prefix-count" class="form-control">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Word Count</label>
+                        <select id="word-count" class="form-control">
                             <option>None</option>
-                            <option selected="selected">Few</option>
+                            <option>Few</option>
+                            <option selected="selected">Some</option>
                             <option>Lots</option>
                         </select>
                     </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label>Suffixes</label>
-                        <select id="suffix-count" class="form-control">
-                            <option>None</option>
-                            <option selected="selected">Few</option>
-                            <option>Lots</option>
-                        </select>
+                    <div class="form-group col-sm-12 col-md-4">
+                        <h2>Words</h2>
+                        <textarea id="words" class="form-control"></textarea>
                     </div>
                 </div>
             </form>
-            <hr />
-            <div id="words" class="row">
-                <div class="col-12">
-                    <h2>Words</h2>
-                </div>
-                <div class="col-sm-12 col-md-4 form-group">
-                    <h3>Prefixes</h3>
-                    <textarea id="word-prefix" class="form-control"></textarea>
-                </div>
-                <div class="col-sm-12 col-md-4 form-group">
-                    <h3>Roots</h3>
-                    <textarea id="word-root" class="form-control"></textarea>
-                </div>
-                <div class="col-sm-12 col-md-4 form-group">
-                    <h3>Suffixes</h3>
-                    <textarea id="word-suffix" class="form-control"></textarea>
-                </div>
-            </div>
         </div>
 
         <!-- Optional JavaScript -->

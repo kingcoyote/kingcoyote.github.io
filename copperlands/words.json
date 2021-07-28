@@ -1,30 +1,26 @@
 {
-    "prefix": {
-        "feature": ["Mt.", "Lake", "Point", "Cape", "Fort" ],
-        "size": ["Big", "Little", "Great", "Gran", "Mighty"],
-        "age": ["New", "Old"],
-        "temperment": ["Hushed", "Pleasant", "Wild", "Harsh", "Desolate", "Broken"],
-        "location": ["North", "South", "East", "West", "Upper", "Lower", "Inner", "Outer"],
-        "ownership": ["Royal", "King's", "People's"],
-        "nationality": ["Dutch", "French", "English", "Indian", "Japanese", "Chinese", "Mexican", "Brazilian", "Spanish", "American"],
-        "title": ["St.", "Lord", "Lady", "San", "Santa"]
-    },
-    "root": {
-        "mineral": ["Copper", "Iron", "Coal", "Steel", "Diamond", "Aluminum" ],
-        "tree": ["Elm", "Pine", "Aspen", "Birch", "Juniper", "Mesquite", "Cedar", "Oak"],
-        "animal-forest": ["Wolf", "Coyote", "Bear", "Moose" ],
-        "animal-raptor": ["Eagle", "Falcon", "Hawk", "Owl" ],
-        "animal-sea": ["Whale", "Dolphin", "Orca", "Shark", "Octopus", "Eel", "Starfish" ],
-        "occupation": ["Rancher", "Furnace", "Tailor", "Fisher", "Hunter", "Poacher", "Soldier", "Courier", "Drummer"],
-        "food-fruit": ["Apple", "Peach", "Watermelon", "Banana", "Grape", "Strawberry", "Cherry", "Cranberry", "Pineapple"],
-        "food-vegetable": ["Potato", "Corn", "Soy"],
-        "crops": ["Cotton"]
-    },
-    "suffix": {
-        "feature-ground": ["Valley", "Land:s", "Mesa", "Point", "Peak", "Meadow", "Hill", "Ridge", "Gap", "Rock", "Flat", "Top", "Round" ],
-        "feature-water":  ["River", "Lake", "Basin", "Springs", "Creek", "Brook", "Run", "Falls", "Oasis", "Bay" ],
-        "feature-nature": ["Woods", "Grove", "Field:s" ],
-        "district": ["Plaza", "Strip", "Place", "Junction", "Heights", "City", "Township", "Center", "Village", "Ville:s", "Home", "Burg:s", "Town:s", "Grad:s" ],
-        "landmark": ["Blind", "Outpost", "Crossing", "Ferry", "Point", "Bridge", "Overlook", "View" ]
-    }
+    "state.size": ["Big:p2", "Little:p2", "Great:p2", "Gran:p2", "Mighty:p2"],
+    "state.age": ["New:p2", "Old:p2", "First:p2", "Second:p2", "Third:p2", "Last:p2"],
+    "state.count": ["One:p2", "Two:p2", "Three:p2", "Four:p2", "Five:p2" ],
+    "state.temperment": ["Hushed:p4", "Pleasant:p4", "Wild:p4", "Harsh:p4", "Desolate:p4", "Broken:p4"],
+    "location": ["North:p1", "South:p1", "East:p1", "West:p1", "Upper:p1", "Lower:p1", "Inner:p1", "Outer:p1"],
+    "ownership": ["Royal:p2", "King's:p2", "People's:p2"],
+    "nationality": ["Dutch:p3", "French:p3", "English:p3", "Indian:p3", "Japanese:p3", "Chinese:p3", "Mexican:p3", "Brazilian:p3", "Spanish:p3", "American:p3"],
+    "title": ["St.:p4", "Lord:p4", "Lady:p4", "San:p4", "Santa:p4"],
+    "mineral": ["Copper:p5", "Iron:p5", "Coal:p5", "Steel:p5", "Diamond:p5", "Aluminum:p5" ],
+    "tree": ["Elm:p5", "Pine:p5", "Aspen:p5", "Birch:p5", "Juniper:p5", "Mesquite:p5", "Cedar:p5", "Oak:p5"],
+    "animal-forest": ["Wolf:p5", "Coyote:p5", "Bear:p5", "Moose:p5" ],
+    "animal-raptor": ["Eagle:p5", "Falcon:p5", "Hawk:p5", "Owl:p5" ],
+    "animal-sea": ["Whale:p5", "Dolphin:p5", "Orca:p5", "Shark:p5", "Octopus:p5", "Eel:p5", "Starfish:p5" ],
+    "occupation": ["Rancher:p5", "Furnace:p5", "Tailor:p5", "Fisher:p5", "Hunter:p5", "Poacher:p5", "Soldier:p5", "Courier:p5", "Drummer:p5"],
+    "food-fruit": ["Apple:p5", "Peach:p5", "Watermelon:p5", "Banana:p5", "Grape:p5", "Strawberry:p5", "Cherry:p5", "Cranberry:p5", "Pineapple:p5"],
+    "food-vegetable": ["Potato:p5", "Corn:p5", "Soy:p5"],
+    "crops": ["Cotton:p5"],
+    "feature.ground": ["Mt.:p3", "Valley:p8", "Land:p6:s", "Mesa:p8", "Point:p8", "Peak:p8", "Meadow:p8", "Hill:p8", "Ridge:p8", "Gap:p8", "Rock:p8", "Flat:p7", "Top:p7", "Round:p7" ],
+    "feature.water":  ["River:p8", "Lake:p9", "Lake:p3", "Basin:p9", "Springs:p8", "Creek:p8", "Brook:p8", "Run:p8", "Falls:p8", "Oasis:p8", "Bay:p9" ],
+    "feature.nature": ["Woods:p8", "Grove:p8", "Field:p6:s", "Hollow:p9" ],
+    "feature.city": ["Plaza:p9", "Strip:p9", "Place:p9", "Junction:p9", "Heights:p9", "City:p9", "Township:p9", "Center:p9", "Village:p9", "Ville:p6:s", "Home:p6", "Burg:p6:s", "Town:p6:s", "Grad:p6:s", "opolis:p6:s" ],
+    "business": ["Bank of:p1", "Uptown:p1", "Downtown:p1"],
+    "feature.landmark": ["Fort:p3", "Blind:p8", "Outpost:p9", "Crossing:p9", "Ferry:p9", "Point:p9", "Point:p3", "Bridge:p9", "Overlook:p9", "View:p9", "Cape:p3", "Refuge:p9" ],
+    "feature.park": ["National Forest:p10", "National Park:p10", "National Refuge:p10"]
 }
