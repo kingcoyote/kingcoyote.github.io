@@ -79,7 +79,7 @@ function initCopperlands() {
             words = words.sort((a, b) => a[1].replace("p", "") - b[1].replace("p", ""))
             let average = words.map(word => parseInt(word[1].replace("p", ""))).reduce((a, b) => a + b) / words.length;
             console.log(`Average of ${words.reduce((a, b) => a + b)} is: ${average}`);
-            invalidWord = average < 4.5 || average > 6;
+            invalidWord = average <= 5 || average > 7;
             tries++;
         }
 
