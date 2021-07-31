@@ -79,7 +79,7 @@ function initCopperlands() {
             words = words.sort((a, b) => a[1].replace("p", "") - b[1].replace("p", ""))
             let average = words.map(word => parseInt(word[1].replace("p", ""))).reduce((a, b) => a + b) / words.length;
             console.log(`Average of ${words.reduce((a, b) => a + b)} is: ${average}`);
-            invalidWord = average < 4.5 || average > 5.5;
+            invalidWord = average < 4.5 || average > 6;
             tries++;
         }
 
@@ -121,8 +121,9 @@ function initCopperlands() {
         saveFavorites();
     };
 
-    $("#favorite-names").on("click", "li a.delete", function(ev) {
-        $(this).parents("#favorite-names")[0].remove($(this).parent()[0]);
+    $("#favorite-names").on("click", "a.delete", function(ev) {
+        ev.preventDefault();
+        $(this).parents("#favorite-names")[0].removeChild($(this).parent()[0]);
         saveFavorites();
     });
 }
