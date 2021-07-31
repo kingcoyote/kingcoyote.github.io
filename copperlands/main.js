@@ -32,14 +32,6 @@ function getRandomElement(array, remove = false) {
     return element;
 }
 
-function saveFavorites() {
-    
-}
-
-function loadFavorites() {
-
-}
-
 function initCopperlands() {
     const wordsTA = document.getElementById("words");
 
@@ -86,8 +78,8 @@ function initCopperlands() {
             }
             words = words.sort((a, b) => a[1].replace("p", "") - b[1].replace("p", ""))
             let average = words.map(word => parseInt(word[1].replace("p", ""))).reduce((a, b) => a + b) / words.length;
-            console.log(`Average is: ${average}`);
-            invalidWord = average < 4 || average > 6;
+            console.log(`Average of ${words.reduce((a, b) => a + b)} is: ${average}`);
+            invalidWord = average < 4.5 || average > 5.5;
             tries++;
         }
 
@@ -106,12 +98,26 @@ function initCopperlands() {
         return word;
     }
 
+    function saveFavorites() {
+        favorites = JSON.stringify(Array.from(favNames.childNodes).map(node => node.innerHTML.split("|")[0].trim()))
+        window.localStorage.setItem("copperlands.favorites", favorites);
+    }
+
+    function loadFavorites() {
+        favorites = JSON.parse(window.localStorage.getItem("copperlands.favorites")) || [];
+        favorites.forEach(name => addToFavorites(name));
+    }
+
+    function addToFavorites(name) {
+        favNames.innerHTML += `<li>${name} | <a class="delete" href="#">Delete</a></li>`;
+    }
+
     document.getElementById("next-name").onclick = ev => {
         newName.innerHTML = generateName();
     };
 
     document.getElementById("save-name").onclick = ev => {
-        favNames.innerHTML += `<li>${newName.innerHTML} | <a class="delete" href="#">Delete</a></li>`;
+        addToFavorites(newName.innerHTML);
         saveFavorites();
     };
 
