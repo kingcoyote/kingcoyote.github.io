@@ -1,25 +1,24 @@
 <template>
   <b-container class="mt-3">
     <h3>Age Track</h3>
-    <div>Store: [{{ store }}]</div>
     <b-table-simple striped>
       <b-thead>
         <b-tr>
           <b-th></b-th>
-          <b-th v-for="year in years" :key=year>
+          <b-th v-for="(year, index) in years" :key="`year_th${index}`">
             <b-input v-model=year.year style="width:100px;" />
           </b-th>
         </b-tr>
       </b-thead>
       <b-tbody>
         <b-tr 
-          v-for="person in people"
-          :key=person>
+          v-for="(person, index) in people"
+          :key="`person_${index}`">
           <b-td>
             <b-input v-model=person.name size="sm" style="width:200px;" class="float-left mr-1" />
             <b-input v-model=person.year size="sm" style="width:100px;" class="float-left" />
           </b-td>
-          <b-td v-for="year in years" :key=year>
+          <b-td v-for="(year, index) in years" :key="`year_td${index}`">
             <b-input 
               style="width:100px;"
               :value="year.year - person.year > 0 ? year.year - person.year : ''"
@@ -29,26 +28,28 @@
       </b-tbody>
     </b-table-simple>
     <b-button-group class="float-left">
-      <b-button variant="success" @click="people.push({name:'', year:9999})">Add Person</b-button>
-      <b-button variant="success" @click="years.push({year:0})">Add Year</b-button>
+      <b-button variant="success" @click=addPerson>Add Person</b-button>
+      <b-button variant="success" @click=addYear>Add Year</b-button>
     </b-button-group>
     <b-button-group class="float-right">
-      <b-button variant="danger" @click="function() { people = []; years = []; }">Reset Group</b-button>
+      <b-button variant="danger" @click=reset>Reset Group</b-button>
     </b-button-group>
   </b-container>
 </template>
 
 <script>
-const people = [];
-const years = [];
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'AgeTrack',
   data: function() {
     return {
-      people,
-      years
+      people: this.$store.state.people,
+      years: this.$store.state.years
     }
+  },
+  methods: {
+    ...mapMutations(['addYear', 'addPerson', 'reset'])
   }
 }
 </script>
