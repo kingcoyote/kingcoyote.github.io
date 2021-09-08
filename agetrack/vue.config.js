@@ -1,3 +1,4 @@
 module.exports = {
-    publicPath: "/agetrack/dist/"
+    publicPath: "/agetrack/dist/",
+    filenameHashing: false
 }
