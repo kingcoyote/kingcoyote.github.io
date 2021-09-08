@@ -4,33 +4,25 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 function load(key) {
-  return JSON.parse(localStorage.getItem(key)) || [];
+  return JSON.parse(localStorage.getItem(key)) || { people: [], years: [] };
 }
 
 function save(key, value) {
   localStorage.setItem(key, JSON.stringify(value))
 }
 
-export default new Vuex.Store({
-  state: {
-    people: load('people'),
-    years: load('years')
-  },
+let store = new Vuex.Store({
+  state: load('default') ,
   mutations: {
     addYear(state) {
       state.years.push({year:0})
-      save('years', state.years)
     },
     addPerson(state) {
       state.people.push({name:'', year:9999})
-      save('people', state.people)
     },
     reset(state) {
-      state.people.splice(0, state.people.length)
-      save('people', state.people)
-
-      state.years.splice(0, state.years.length)
-      save('years', state.years)
+      state.people.splice(0)
+      state.years.splice(0)
     }
   },
   actions: {
@@ -39,3 +31,9 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+store.watch((state) => {
+  save('default', state)
+})
+
+export default store;
