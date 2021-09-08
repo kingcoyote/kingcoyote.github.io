@@ -6,7 +6,8 @@
         <b-tr>
           <b-th></b-th>
           <b-th v-for="(year, index) in years" :key="`year_th${index}`">
-            <b-input v-model=year.year style="width:100px;" />
+            <b-button variant="danger" @click="removeYear(index)" class="float-left mr-1" style="width:60px">Del</b-button>
+            <b-input v-model=year.year style="width:80px;" />
           </b-th>
         </b-tr>
       </b-thead>
@@ -15,12 +16,13 @@
           v-for="(person, index) in people"
           :key="`person_${index}`">
           <b-td>
-            <b-input v-model=person.name size="sm" style="width:200px;" class="float-left mr-1" />
-            <b-input v-model=person.year size="sm" style="width:100px;" class="float-left" />
+            <b-button size="sm" variant="danger" @click="removePerson(index)" class="float-left mr-1">Del</b-button>
+            <b-input v-model=person.name size="sm" style="width:180px;" class="float-left mr-1" />
+            <b-input v-model=person.year size="sm" style="width:80px;" class="float-left" />
           </b-td>
           <b-td v-for="(year, index) in years" :key="`year_td${index}`">
             <b-input 
-              style="width:100px;"
+              style="width:145px;"
               :value="year.year - person.year > 0 ? year.year - person.year : ''"
               @change="function(value) { person.year = parseInt(year.year) - parseInt(value); }" />
             </b-td>
@@ -49,7 +51,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addYear', 'addPerson', 'reset'])
+    ...mapMutations(['addYear', 'addPerson', 'removeYear', 'removePerson', 'reset'])
   }
 }
 </script>
