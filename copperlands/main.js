@@ -88,10 +88,21 @@ function initCopperlands() {
         for (let w in words) {
             if (words.hasOwnProperty(w) === false) continue;
             w = words[w];
-            if (w[2] == "s") {
-                word = word + w[0].toLowerCase();
+            let newWord = w[0];
+
+            if (w.includes("o")) {
+                const random = Math.random();
+                if (random < 0.25) {
+                    newWord += "'s"
+                } else if (random < 0.60) {
+                    newWord += "s"
+                }
+            }
+
+            if (w.includes("s")) {
+                word = word + newWord.replace("'", "").toLowerCase();
             } else {
-                word = word + " " + w[0];
+                word = word + " " + newWord;
             }
         }
 
